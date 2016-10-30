@@ -7,7 +7,7 @@ class Cell
 public:
 	Cell();
 
-	void setState(bool s);
+	void setState(bool);
 	bool getState();
 
 	int getLiveNeighbours();
