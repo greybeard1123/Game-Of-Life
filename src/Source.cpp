@@ -13,6 +13,5 @@ int main()
 	gol.generateNextState();
 	gol.printState();
 
-	cin >> row;
 	return 0;
 }
