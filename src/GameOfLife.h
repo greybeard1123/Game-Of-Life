@@ -9,13 +9,13 @@ private:
 	Cell **cell;
 
 public:
-	GameOfLife(int r, int c);
+	GameOfLife(int, int);
 
 	void readInitialState();
 
-	bool ifRowExists(int row);
+	bool ifRowExists(int);
 
-	bool ifColExists(int col);
+	bool ifColExists(int);
 
 	void findNeighbours();
 
