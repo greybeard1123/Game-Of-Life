@@ -52,22 +52,17 @@ void GameOfLife::findNeighbours()
 	for (int i = 0; i < rows + 2; i++)
 	for (int j = 0; j < cols + 2; j++)
 	{
-		if (ifRowExists(i - 1) && ifColExists(j - 1) && cell[i - 1][j - 1].getState() == 1)
-			cell[i][j].incrementLiveNeighbours();
-		if (ifRowExists(i - 1) && cell[i - 1][j].getState() == 1)
-			cell[i][j].incrementLiveNeighbours();
-		if (ifRowExists(i - 1) && ifColExists(j + 1) && cell[i - 1][j + 1].getState() == 1)
-			cell[i][j].incrementLiveNeighbours();
-		if (ifColExists(j - 1) && cell[i][j - 1].getState() == 1)
-			cell[i][j].incrementLiveNeighbours();
-		if (ifColExists(j + 1) && cell[i][j + 1].getState() == 1)
-			cell[i][j].incrementLiveNeighbours();
-		if (ifRowExists(i + 1) && ifColExists(j - 1) && cell[i + 1][j - 1].getState() == 1)
-			cell[i][j].incrementLiveNeighbours();
-		if (ifRowExists(i + 1) && cell[i + 1][j].getState() == 1)
-			cell[i][j].incrementLiveNeighbours();
-		if (ifRowExists(i + 1) && ifColExists(j + 1) && cell[i + 1][j + 1].getState() == 1)
-			cell[i][j].incrementLiveNeighbours();
+		for(int di = -1; di <= 1; di++)
+		for(int dj = -1; dj <= 1; dj++)
+		{
+			if(di == 0 && dj == 0) 
+				continue;
+			else
+			{
+				if(ifRowExists(i + di) && ifColExists(j + dj) && cell[i + di][j + dj].getState() == 1)
+					cell[i][j].incrementLiveNeighbours();
+			}
+		}
 	}
 }
 
